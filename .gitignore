@@ -39,6 +39,11 @@ out/
 ### macOS ###
 .DS_Store
 
+### test ###
 k6/
 monitoring/
 docker-compose.yml
+
+### claude ###
+CLAUDE.md
+.claude/
