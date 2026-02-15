@@ -38,3 +38,7 @@ out/
 
 ### macOS ###
 .DS_Store
+
+k6/
+monitoring/
+docker-compose.yml
