@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: live-chat-service
+
+  # JPA
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+
+  # MySQL
+  datasource:
+    url: jdbc:mysql://localhost:3306/livechat?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+    username: livechat
+    password: livechat1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+
+  # Redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+# Server
+server:
+  port: 8080
+
+# Actuator + Prometheus
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+# Logging
+logging:
+  level:
+    com.livechat: DEBUG
+    org.springframework.web.socket: INFO
